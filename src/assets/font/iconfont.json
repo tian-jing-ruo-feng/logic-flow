@@ -1,0 +1,198 @@
+{
+  "id": "3286330",
+  "name": "逻辑编排",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "26327476",
+      "name": "节点类型",
+      "font_class": "jiedianleixing",
+      "unicode": "e773",
+      "unicode_decimal": 59251
+    },
+    {
+      "icon_id": "6204754",
+      "name": "成功",
+      "font_class": "chenggong",
+      "unicode": "e64e",
+      "unicode_decimal": 58958
+    },
+    {
+      "icon_id": "6204756",
+      "name": "失败",
+      "font_class": "shibai",
+      "unicode": "e64f",
+      "unicode_decimal": 58959
+    },
+    {
+      "icon_id": "10442990",
+      "name": "运行中",
+      "font_class": "yunhangzhong",
+      "unicode": "e824",
+      "unicode_decimal": 59428
+    },
+    {
+      "icon_id": "15216081",
+      "name": "运行中",
+      "font_class": "yunhangzhong1",
+      "unicode": "e6e9",
+      "unicode_decimal": 59113
+    },
+    {
+      "icon_id": "1264",
+      "name": "编辑",
+      "font_class": "bianji1",
+      "unicode": "e600",
+      "unicode_decimal": 58880
+    },
+    {
+      "icon_id": "6664153",
+      "name": "edit",
+      "font_class": "edit",
+      "unicode": "e60f",
+      "unicode_decimal": 58895
+    },
+    {
+      "icon_id": "7325997",
+      "name": "编辑",
+      "font_class": "bianji",
+      "unicode": "e60e",
+      "unicode_decimal": 58894
+    },
+    {
+      "icon_id": "23476958",
+      "name": "瑞士插口插头插销",
+      "font_class": "ruishichakouchatouchaxiao",
+      "unicode": "e614",
+      "unicode_decimal": 58900
+    },
+    {
+      "icon_id": "594136",
+      "name": "模版编排",
+      "font_class": "mubanbianpai",
+      "unicode": "e712",
+      "unicode_decimal": 59154
+    },
+    {
+      "icon_id": "1027658",
+      "name": "编排参数",
+      "font_class": "bianpaicanshu",
+      "unicode": "e756",
+      "unicode_decimal": 59222
+    },
+    {
+      "icon_id": "3447466",
+      "name": "服务编排-连接线",
+      "font_class": "lianjiexian",
+      "unicode": "e75b",
+      "unicode_decimal": 59227
+    },
+    {
+      "icon_id": "10885624",
+      "name": "开始",
+      "font_class": "kaishi",
+      "unicode": "e617",
+      "unicode_decimal": 58903
+    },
+    {
+      "icon_id": "11488329",
+      "name": "suspended-fill",
+      "font_class": "suspended-fill",
+      "unicode": "e78e",
+      "unicode_decimal": 59278
+    },
+    {
+      "icon_id": "13592651",
+      "name": "composer 逻辑编排",
+      "font_class": "composerluojibianpai",
+      "unicode": "e6e4",
+      "unicode_decimal": 59108
+    },
+    {
+      "icon_id": "17822273",
+      "name": "变量赋值",
+      "font_class": "bianliangfuzhi",
+      "unicode": "e6c5",
+      "unicode_decimal": 59077
+    },
+    {
+      "icon_id": "27402280",
+      "name": "撤销",
+      "font_class": "chexiao",
+      "unicode": "ee15",
+      "unicode_decimal": 60949
+    },
+    {
+      "icon_id": "27402433",
+      "name": "重做",
+      "font_class": "zhongzuo",
+      "unicode": "ee19",
+      "unicode_decimal": 60953
+    },
+    {
+      "icon_id": "938230",
+      "name": "switch",
+      "font_class": "switch",
+      "unicode": "e621",
+      "unicode_decimal": 58913
+    },
+    {
+      "icon_id": "4354256",
+      "name": "形状-三角形",
+      "font_class": "xingzhuang-sanjiaoxing",
+      "unicode": "eb99",
+      "unicode_decimal": 60313
+    },
+    {
+      "icon_id": "4425897",
+      "name": "循环",
+      "font_class": "xunhuan",
+      "unicode": "e7b1",
+      "unicode_decimal": 59313
+    },
+    {
+      "icon_id": "7008965",
+      "name": "message",
+      "font_class": "message",
+      "unicode": "e70c",
+      "unicode_decimal": 59148
+    },
+    {
+      "icon_id": "7594409",
+      "name": "24gl-rectangle",
+      "font_class": "24gl-rectangle",
+      "unicode": "ea98",
+      "unicode_decimal": 60056
+    },
+    {
+      "icon_id": "11468160",
+      "name": "椭圆",
+      "font_class": "tuoyuan",
+      "unicode": "e610",
+      "unicode_decimal": 58896
+    },
+    {
+      "icon_id": "13303607",
+      "name": "json",
+      "font_class": "json",
+      "unicode": "e66c",
+      "unicode_decimal": 58988
+    },
+    {
+      "icon_id": "19615174",
+      "name": "Start-01",
+      "font_class": "Start-01",
+      "unicode": "e6e0",
+      "unicode_decimal": 59104
+    },
+    {
+      "icon_id": "22383119",
+      "name": "菱形",
+      "font_class": "lingxing",
+      "unicode": "edda",
+      "unicode_decimal": 60890
+    }
+  ]
+}

@@ -1,7 +1,7 @@
-import { Graph } from "@antv/x6";
-import "@antv/x6-vue-shape";
+import { Graph } from '@antv/x6'
+import '@antv/x6-vue-shape'
 //  引入自定义vue节点
-import nodeCircle from "@com/custom-node/nodeCircle.vue";
+import nodeCircle from '@com/custom-node/nodeCircle.vue'
 
 /**
  * @description: 节点注册
@@ -11,14 +11,14 @@ import nodeCircle from "@com/custom-node/nodeCircle.vue";
  * @return {Graph}
  */
 function registerNodeWithVue(graph, name, vuecomponet) {
-  const Graph = graph;
-  const { style, component } = vuecomponet;
-  const { width, height } = style;
+  const Graph = graph
+  const { style, component } = vuecomponet
+  const { width, height } = style
 
   Graph.registerNode(
     name,
     {
-      inherit: "vue-shape",
+      inherit: 'vue-shape',
       width,
       height,
       component,
@@ -26,67 +26,67 @@ function registerNodeWithVue(graph, name, vuecomponet) {
       ports: {
         groups: {
           top: {
-            position: "top",
+            position: 'top',
             attrs: {
               circle: {
                 r: 4,
                 magnet: true,
-                stroke: "#c2c805",
+                stroke: '#c2c805',
                 strokeWidth: 1,
-                fill: "#fff",
-              },
-            },
+                fill: '#fff'
+              }
+            }
           },
           bottom: {
-            position: "bottom",
+            position: 'bottom',
             attrs: {
               circle: {
                 r: 4,
                 magnet: true,
-                stroke: "#c2c805",
+                stroke: '#c2c805',
                 strokeWidth: 1,
-                fill: "#fff",
-              },
-            },
+                fill: '#fff'
+              }
+            }
           },
           left: {
-            position: "left",
+            position: 'left',
             attrs: {
               circle: {
                 r: 4,
                 magnet: true,
-                stroke: "#c2c805",
+                stroke: '#c2c805',
                 strokeWidth: 1,
-                fill: "#fff",
-              },
-            },
+                fill: '#fff'
+              }
+            }
           },
           right: {
-            position: "right",
+            position: 'right',
             attrs: {
               circle: {
                 r: 4,
                 magnet: true,
-                stroke: "#c2c805",
+                stroke: '#c2c805',
                 strokeWidth: 1,
-                fill: "#fff",
-              },
-            },
-          },
-        },
-      },
+                fill: '#fff'
+              }
+            }
+          }
+        }
+      }
     },
     true // 重名覆盖
-  );
+  )
 
-  return Graph;
+  return Graph
 }
 
 // 注册自定义节点
-registerNodeWithVue(Graph, "node-circle", {
+registerNodeWithVue(Graph, 'node-circle', {
   style: {
     width: 50,
-    height: 50,
+    height: 50
   },
-  component: nodeCircle,
-});
+  component: nodeCircle
+})

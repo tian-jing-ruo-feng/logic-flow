@@ -2,12 +2,12 @@
   <div id="coverCot" style="width: 100vw; height: 100vh; overflow: hidden">
     <section class="section-cot" style="width: 100%; height: 100%">
       <div id="container" @click.stop="hideFn">
-        <MenuBar
+        <MenuBar 
           v-if="showContextMenu"
           ref="menuBar"
           @callBack="contextMenuFn"
         />
-        <header>
+        <header v-show="true">
           <el-tooltip
             class="item"
             effect="dark"
@@ -84,8 +84,9 @@
             />
           </el-tooltip>
         </header>
+        <el-tag style="width: 100%" type="danger">AntV x6 、ElementUI 、 Vue.js 搭建可视化拖拽流程图</el-tag>
         <div id="draw-cot" />
-        <Drawer ref="drawer" @addNode="addNode" />
+        <Drawer v-show="false" ref="drawer" @addNode="addNode" />
       </div>
     </section>
     <DialogCondition ref="dialogCondition"></DialogCondition>
@@ -94,22 +95,14 @@
 </template>
 
 <script>
-import { Graph, Node, Path, Cell } from "@antv/x6";
-import "@antv/x6-vue-shape";
-
-import database from "./components/nodeTheme/database.vue";
-import condition from "./components/nodeTheme/condition.vue";
-import onlyout from "./components/nodeTheme/onlyOut.vue";
-import onlyin from "./components/nodeTheme/onlyIn.vue";
 import DataJson from "./data";
 import MenuBar from "./components/menuBar";
 import Drawer from "./components/drawer";
 import DialogCondition from "./components/dialog/condition.vue";
 import DialogMysql from "./components/dialog/mysql.vue";
+import initGraph, { registerEvent } from '@/control'
 
-
-import initGraph from '@/control'
-
+import Funcs from '@/control/func.js'
 const nodeStatusList = [
   [
     {
@@ -190,10 +183,12 @@ export default {
   components: { MenuBar, Drawer, DialogCondition, DialogMysql },
   data() {
     return {
+      container: null,
       graph: "",
       timer: "",
       isLock: false,
       showContextMenu: false,
+      funcs: {}
     };
   },
   mounted() {
@@ -212,87 +207,13 @@ export default {
       this.showContextMenu = false;
     },
     initGraph() {
-      const graph = initGraph(document.getElementById("draw-cot"))
+      const container = document.getElementById('draw-cot')
+      const graph = initGraph(container)
+      this.container = container
       this.graph = graph;
-
-      graph.on("edge:contextmenu", ({ e, x, y, edge, view }) => {
-        this.showContextMenu = true;
-        this.$nextTick(() => {
-          this.$refs.menuBar.initFn(e.offsetX, e.offsetY, {
-            type: "edge",
-            item: edge,
-          });
-        });
-      });
-
-      graph.on("node:contextmenu", ({ e, x, y, node, view }) => {
-        this.showContextMenu = true;
-
-        this.$nextTick(() => {
-          this.$refs.menuBar.setItem({ type: 'node', item: node })
-          const p = graph.localToPage(x, y);
-          this.$refs.menuBar.initFn(p.x, p.y, { type: "node", item: node });
-        });
-      });
-
-      graph.on("edge:connected", ({ edge }) => {
-        const source = graph.getCellById(edge.source.cell);
-        const target = graph.getCellById(edge.target.cell);
-
-        // 只允许输入
-        if (target.data.type == "output") {
-          return graph.removeEdge(edge.id);
-        }
-
-        // 只允许输出
-        if (source.data.type == "onlyIn") {
-          return graph.removeEdge(edge.id);
-        }
-
-        // 如果线源头的一端链接桩只允许输入
-        if (/in/.test(edge.source.port)) {
-          return graph.removeEdge(edge.id);
-        }
-
-        // 目标一端链接桩只允许输出
-        if (/out/.test(edge.target.port)) {
-          return graph.removeEdge(edge.id);
-        }
-
-        if (source.data.type == "condition") {
-          console.log(source);
-          console.log(target);
-          console.log(edge);
-          if (target.data.t === edge.id || target.data.f === edge.id) {
-            return graph.removeEdge(edge.id);
-          }
-          this.$refs.dialogCondition.visible = true;
-          this.$refs.dialogCondition.init(source.data, edge);
-        }
-
-        edge.attr({
-          line: {
-            strokeDasharray: "",
-          },
-        });
-      });
-
-      graph.on("node:change:data", ({ node }) => {
-        const edges = graph.getIncomingEdges(node);
-        const { status } = node.getData();
-        edges?.forEach((edge) => {
-          if (status === "running") {
-            edge.attr("line/strokeDasharray", 5);
-            edge.attr(
-              "line/style/animation",
-              "running-line 30s infinite linear"
-            );
-          } else {
-            edge.attr("line/strokeDasharray", "");
-            edge.attr("line/style/animation", "");
-          }
-        });
-      });
+      registerEvent(graph, this)
+      const funcs = new Funcs(this)
+      this.funcs = funcs
     },
     async showNodeStatus(statusList) {
       const status = statusList.shift();
@@ -323,18 +244,14 @@ export default {
       this.graph.resetCells(cells);
     },
     zoomFn(num) {
-      this.graph.zoom(num);
+      // this.graph.zoom(num);
+      this.funcs.zoomFn(num)
     },
     centerFn() {
-      const num = 1 - this.graph.zoom();
-      num > 1 ? this.graph.zoom(num * -1) : this.graph.zoom(num);
-      this.graph.centerContent();
+      this.funcs.centerFn()
     },
     startFn(item) {
-      this.timer && clearTimeout(this.timer);
-      this.init(item || DataJson);
-      this.showNodeStatus(Object.assign([], nodeStatusList));
-      this.graph.centerContent();
+      this.funcs.startFn(item, DataJson, nodeStatusList)
     },
     createMenuFn() {},
     keyBindFn() {
@@ -371,26 +288,13 @@ export default {
       });
     },
     saveFn() {
-      localStorage.setItem(
-        "x6Json",
-        JSON.stringify(this.graph.toJSON({ diff: true }))
-      );
+      this.funcs.saveFn()
     },
     loadFn() {
-      this.timer && clearTimeout(this.timer);
-      const x6Json = JSON.parse(localStorage.getItem("x6Json"));
-
-      this.startFn(x6Json.cells);
+      this.funcs.loadFn()
     },
     lockFn() {
-      this.isLock = !this.isLock;
-      if (this.isLock) {
-        this.graph.enablePanning();
-        this.graph.enableKeyboard();
-      } else {
-        this.graph.disablePanning();
-        this.graph.disableKeyboard();
-      }
+      this.funcs.lockFn()
     },
     contextMenuFn(type, node) {
       switch (type) {

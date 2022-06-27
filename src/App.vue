@@ -213,7 +213,7 @@ export default {
     },
     async showNodeStatus(statusList) {
       const status = statusList.shift();
-      status?.forEach((item) => {
+      status && status.forEach((item) => {
         const { id, status } = item;
         const node = this.graph.getCellById(id);
         const data = node.getData();

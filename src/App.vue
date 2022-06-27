@@ -89,8 +89,6 @@
         <Drawer v-show="false" ref="drawer" @addNode="addNode" />
       </div>
     </section>
-    <DialogCondition ref="dialogCondition"></DialogCondition>
-    <DialogMysql ref="dialogMysql"></DialogMysql>
   </div>
 </template>
 
@@ -98,8 +96,6 @@
 import DataJson from "./data";
 import MenuBar from "./components/menuBar";
 import Drawer from "./components/drawer";
-import DialogCondition from "./components/dialog/condition.vue";
-import DialogMysql from "./components/dialog/mysql.vue";
 import initGraph, { registerEvent } from '@/control'
 
 import Funcs from '@/control/func.js'
@@ -180,7 +176,7 @@ const nodeStatusList = [
 
 export default {
   name: "App",
-  components: { MenuBar, Drawer, DialogCondition, DialogMysql },
+  components: { MenuBar, Drawer },
   data() {
     return {
       container: null,
@@ -306,8 +302,6 @@ export default {
           }
           break;
         case "source":
-          this.$refs.dialogMysql.visible = true;
-          this.$refs.dialogMysql.init(node);
           break;
       }
 

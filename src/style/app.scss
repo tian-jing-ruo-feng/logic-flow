@@ -1,0 +1,92 @@
+body {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+header {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+  height: 50px;
+}
+
+header i {
+  margin: 8px;
+  font-size: 30px;
+}
+
+#app {
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+  margin-top: 60px;
+}
+
+.my-selecting {
+  border: 1px solid red;
+  display: block;
+  z-index: 0;
+}
+
+@keyframes running-line {
+  to {
+    stroke-dashoffset: -1000;
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.x6-node-selected .node {
+  border-color: #1890ff;
+  border-radius: 2px;
+  box-shadow: 0 0 0 4px #d4e8fe;
+}
+
+.x6-node-selected .node.success {
+  border-color: #52c41a;
+  border-radius: 2px;
+  box-shadow: 0 0 0 4px #ccecc0;
+}
+
+.x6-node-selected .node.failed {
+  border-color: #ff4d4f;
+  border-radius: 2px;
+  box-shadow: 0 0 0 4px #fedcdc;
+}
+
+.x6-edge:hover path:nth-child(2) {
+  stroke: #1890ff;
+  stroke-width: 1px;
+}
+
+.x6-edge-selected path:nth-child(2) {
+  stroke: #1890ff;
+  stroke-width: 1.5px !important;
+}
+
+.section-cot {
+  display: flex;
+}
+
+.section-cot #container {
+  position: relative;
+  flex: 1;
+}
+
+.section-cot #container #draw-cot {
+  width: 100%;
+  height: 100%;
+}
+
+::-webkit-scrollbar {
+  width: 0;
+}

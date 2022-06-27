@@ -1,0 +1,36 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: circleci/node:12.22.5
+    branches:
+      only:
+        - main
+    steps:
+      - add_ssh_keys:
+          fingerprints:
+            - '5e:38:1b:43:ed:7c:53:16:55:e9:03:14:b7:23:49:99'
+      - checkout
+      # 使用node_modules缓存
+      - restore_cache:
+          keys:
+            - node_dependencies
+      - run:
+          name: Install
+          command: yarn install
+      # 对node_modules 进行缓存
+      - save_cache:
+          paths:
+            - node_modules
+          key: node_dependencies
+      - run:
+          name: Build
+          command: yarn build
+      - run:
+          name: Auth Deploy
+          # 设置文件权限
+          command: chmod +x scripts/deploy.sh
+      - run:
+          name: Deploy
+          # 执行shell脚本
+          command: ./scripts/deploy.sh

@@ -10,7 +10,7 @@
       style="position: absolute; width: 300px; box-sizing: border-box"
       show-close
     >
-      <section v-if="false" class="listBar" @click.stop="">
+      <section v-if="true" class="listBar" @click.stop="">
         <p @click="showMore = !showMore">
           <img
             :class="{ arrow: showMore }"
@@ -19,7 +19,7 @@
           />
           测试元件
         </p>
-        <div v-if="showMore" class="listBar-cot">
+        <div v-show="showMore" class="listBar-cot">
           <div
             v-for="(item, ind) in configList"
             :key="ind"
@@ -28,12 +28,13 @@
             @drag="drag(item)"
             @dragend="dragend(item)"
           >
-            <span>
+            <!-- <span>
               <img src="../assets/svg/defaultImg.svg" alt="" />
             </span>
             <p>
               {{ item.label }}
-            </p>
+            </p> -->
+            <node-circle></node-circle>
           </div>
         </div>
       </section>
@@ -42,12 +43,14 @@
 </template>
 
 <script>
+import nodeCircle from '../components/custom-node/nodeCircle.vue'
+
 const mouseXY = { x: null, y: null };
 import config from "./config";
 
 export default {
   name: "Drawer",
-
+  components: { nodeCircle },
   data() {
     return {
       visible: true,
@@ -67,7 +70,7 @@ export default {
     );
   },
   methods: {
-    drag: function (item) {
+    drag: function () {
       // 当元素被拖动时触发
       const parentRect = document
         .getElementById("container")
@@ -96,9 +99,9 @@ export default {
           config = {
             x: x,
             y: y,
-            width: 180,
-            height: 40,
-            shape: "dag-output",
+            width: 50,
+            height: 50,
+            shape: "node-circle",
             data: item,
             ports: {
               groups: {
@@ -128,9 +131,9 @@ export default {
           config = {
             x: x,
             y: y,
-            width: 180,
-            height: 40,
-            shape: "dag-onlyIn",
+            width: 50,
+            height: 50,
+            shape: "node-circle",
             data: item,
             ports: {
               groups: {
@@ -160,9 +163,9 @@ export default {
           config = {
             x: x,
             y: y,
-            width: 180,
-            height: 40,
-            shape: "dag-node",
+            width: 50,
+            height: 50,
+            shape: "node-circle",
             data: item,
             ports: {
               groups: {
@@ -208,9 +211,9 @@ export default {
           config = {
             x: x,
             y: y,
-            width: 180,
-            height: 40,
-            shape: "dag-condition",
+            width: 50,
+            height: 50,
+            shape: "node-circle",
             data: item,
             ports: {
               groups: {

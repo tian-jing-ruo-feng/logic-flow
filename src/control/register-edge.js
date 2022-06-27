@@ -1,5 +1,4 @@
-import { Graph } from '@antv/x6'
-import Path from 'path'
+import { Graph, Path } from '@antv/x6'
 /**
  * @description: 注册边
  * @param {Graph} graph 构造函数

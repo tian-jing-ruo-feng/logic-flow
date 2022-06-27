@@ -7,12 +7,12 @@ import nodeCircle from '@com/custom-node/nodeCircle.vue'
  * @description: 节点注册
  * @param {Graph} graph 构造函数
  * @param {String} name 节点名称
- * @param {Object} vuecomponet 节点对象[宽、高、Vue节点组件]
+ * @param {Object} style 自定义样式[宽、高]
+ * @param {Vue} component vue组件
  * @return {Graph}
  */
-function registerNodeWithVue(graph, name, vuecomponet) {
+function registerNodeWithVue(graph, name, style, component) {
   const Graph = graph
-  const { style, component } = vuecomponet
   const { width, height } = style
 
   Graph.registerNode(
@@ -74,6 +74,17 @@ function registerNodeWithVue(graph, name, vuecomponet) {
             }
           }
         }
+      },
+      attrs: {
+        label: {
+          text: '测试节点',
+          fontSize: 14,
+          fill: '#333333',
+          refX: '50%',
+          refY: '128%',
+          textAnchor: 'middle',
+          textVerticalAnchor: 'middle'
+        }
       }
     },
     true // 重名覆盖
@@ -83,10 +94,17 @@ function registerNodeWithVue(graph, name, vuecomponet) {
 }
 
 // 注册自定义节点
-registerNodeWithVue(Graph, 'node-circle', {
-  style: {
+registerNodeWithVue(
+  Graph,
+  'node-circle',
+  {
     width: 50,
     height: 50
   },
-  component: nodeCircle
-})
+  {
+    template: `<node-circle></node-circle>`,
+    components: {
+      nodeCircle
+    }
+  }
+)

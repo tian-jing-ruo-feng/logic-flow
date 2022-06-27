@@ -7,12 +7,12 @@ export const initGraph = function (container) {
       visible: true,
       type: 'dot',
       args: {
-        color: '#fff',
+        color: '#000',
         thickness: 1
       }
     },
     background: {
-      color: '#000'
+      color: '#fff'
     },
     container,
     panning: {

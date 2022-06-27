@@ -86,7 +86,7 @@
           </el-tooltip>
         </header>
         <div id="draw-cot" />
-        <Drawer v-show="false" ref="drawer" @addNode="addNode" />
+        <Drawer ref="drawer" @addNode="addNode" />
       </div>
     </section>
   </div>
@@ -234,13 +234,14 @@ export default {
           cells.push(this.graph.createEdge(item));
         } else {
           delete item.component;
-          cells.push(this.graph.createNode(item));
+          cells.push(this.graph.createNode(item).attr({label: {
+            text: item.data.label
+          }}));
         }
       });
       this.graph.resetCells(cells);
     },
     zoomFn(num) {
-      // this.graph.zoom(num);
       this.funcs.zoomFn(num)
     },
     centerFn() {

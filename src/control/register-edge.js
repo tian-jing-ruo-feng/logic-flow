@@ -1,5 +1,5 @@
 import { Graph } from '@antv/x6'
-
+import Path from 'path'
 /**
  * @description: 注册边
  * @param {Graph} graph 构造函数
@@ -31,8 +31,11 @@ function registerEdgeWithSelf(graph, name) {
   return Graph
 }
 
+// 注册自定义边
+registerEdgeWithSelf(Graph, 'tjrf-edge')
+
 // 自定义连接器
-function registerConnectorWithSelf(graph) {
+export const registerConnectorWithSelf = function (graph) {
   const Graph = graph
   Graph.registerConnector(
     'tjrf-connector',
@@ -55,6 +58,3 @@ function registerConnectorWithSelf(graph) {
     true
   )
 }
-
-// 注册自定义边
-registerEdgeWithSelf(Graph, 'tjrf-edge')

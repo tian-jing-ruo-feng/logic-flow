@@ -45,7 +45,7 @@ export const initGraph = function (container) {
       highlight: true,
       connectionPoint: 'anchor',
       anchor: 'center',
-      validateMagnet({ magnet }) {
+      validateMagnet() {
         // 连线验证配置
         return true
       },

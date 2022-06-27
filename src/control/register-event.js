@@ -1,6 +1,6 @@
 export const registerEvent = function (graph, vm) {
   // ------------ 监听边的相关事件 ------------
-  graph.on('edge:contextmenu', ({ e, x, y, edge, view }) => {
+  graph.on('edge:contextmenu', ({ e, edge }) => {
     vm.showContextMenu = true
     vm.$nextTick(() => {
       vm.$refs.menuBar.initFn(e.offsetX, e.offsetY, {
@@ -50,7 +50,7 @@ export const registerEvent = function (graph, vm) {
   })
 
   // ------------ 监听节点相关事件 ------------
-  graph.on('node:contextmenu', ({ e, x, y, node, view }) => {
+  graph.on('node:contextmenu', ({ x, y, node }) => {
     vm.showContextMenu = true
     vm.$nextTick(() => {
       vm.$refs.menuBar.setItem({ type: 'node', item: node })

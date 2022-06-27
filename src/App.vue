@@ -7,6 +7,7 @@
           ref="menuBar"
           @callBack="contextMenuFn"
         />
+        <el-tag style="width: 100%" type="primary">AntV x6 、ElementUI 、 Vue.js 搭建可视化拖拽流程图</el-tag>
         <header v-show="true">
           <el-tooltip
             class="item"
@@ -84,7 +85,6 @@
             />
           </el-tooltip>
         </header>
-        <el-tag style="width: 100%" type="danger">AntV x6 、ElementUI 、 Vue.js 搭建可视化拖拽流程图</el-tag>
         <div id="draw-cot" />
         <Drawer v-show="false" ref="drawer" @addNode="addNode" />
       </div>

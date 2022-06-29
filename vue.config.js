@@ -10,7 +10,7 @@ module.exports = {
   devServer: {
     // 设置代理
     hot: true, //热加载
-    host: '0.0.0.0', //ip地址
+    // host: '0.0.0.0', //ip地址
     port: 5555, //端口
     https: false
   },

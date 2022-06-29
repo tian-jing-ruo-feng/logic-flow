@@ -6,6 +6,48 @@
   "description": "",
   "glyphs": [
     {
+      "icon_id": "755612",
+      "name": "圆形",
+      "font_class": "circle",
+      "unicode": "e652",
+      "unicode_decimal": 58962
+    },
+    {
+      "icon_id": "3977828",
+      "name": "数据库",
+      "font_class": "shujuku",
+      "unicode": "e615",
+      "unicode_decimal": 58901
+    },
+    {
+      "icon_id": "9805767",
+      "name": "菱形",
+      "font_class": "lingxing1",
+      "unicode": "e668",
+      "unicode_decimal": 58984
+    },
+    {
+      "icon_id": "16516770",
+      "name": "文档",
+      "font_class": "wendang",
+      "unicode": "e6b8",
+      "unicode_decimal": 59064
+    },
+    {
+      "icon_id": "17455087",
+      "name": "结束",
+      "font_class": "jieshu",
+      "unicode": "e7e7",
+      "unicode_decimal": 59367
+    },
+    {
+      "icon_id": "22935911",
+      "name": "矩形",
+      "font_class": "juxing",
+      "unicode": "e8e8",
+      "unicode_decimal": 59624
+    },
+    {
       "icon_id": "26327476",
       "name": "节点类型",
       "font_class": "jiedianleixing",

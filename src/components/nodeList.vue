@@ -22,12 +22,26 @@ export default {
       config
     }
   },
+  mounted() {
+    this.filterNode()
+  },
   methods: {
     drag(node) {
       this.$emit('drag-start', node)
     },
     dragend(node) {
       this.$emit('drag-end', node)
+    },
+    filterNode() {
+      this.$bus.$on('filter-node', (search) => {
+        let filterres = config.filter((node) => {
+          let res =
+            node.name.includes(search.trim()) ||
+            node.label.includes(search.trim())
+          return res
+        })
+        this.config = filterres
+      })
     }
   }
 }

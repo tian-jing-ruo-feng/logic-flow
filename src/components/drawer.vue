@@ -13,7 +13,14 @@
       </template>
       <!-- 模糊过滤 -->
       <section class="node-filter">
-        <el-input size="small" placeholder="请输入搜索的内容"></el-input>
+        <el-input
+          size="small"
+          placeholder="请输入搜索的内容"
+          maxlength="20"
+          show-word-limit
+          clearable
+          v-model="search"
+          @input="filterNode"></el-input>
       </section>
       <!-- 节点列表 -->
       <section v-if="true" class="listBar" @click.stop="">
@@ -45,7 +52,8 @@ export default {
       visible: true,
       direction: 'ltr',
       showMore: true,
-      configList: config
+      configList: config,
+      search: ''
     }
   },
   mounted() {
@@ -59,6 +67,9 @@ export default {
     )
   },
   methods: {
+    filterNode() {
+      this.$bus.$emit('filter-node', this.search)
+    },
     drag: function () {
       // 当元素被拖动时触发
       const parentRect = document

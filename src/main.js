@@ -2,6 +2,7 @@ import Vue from 'vue'
 import App from './App.vue'
 import '@antv/x6-vue-shape'
 
+import '@/control/common.js'
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 // import "@/style/common.scss";

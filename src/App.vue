@@ -245,6 +245,7 @@ export default {
     },
     startFn(item) {
       this.funcs.startFn(item, DataJson, nodeStatusList)
+      this.funcs.showPorts(false)
     },
     createMenuFn() {},
     keyBindFn() {
@@ -309,9 +310,37 @@ export default {
       this.$refs.drawer.visible = !this.$refs.drawer.visible
     },
     addNode(option) {
-      const p = this.graph.pageToLocal(option.x, option.y)
-      let text = option.data.name
-      this.graph.addNode(Object.assign({}, option, p)).attr({ label: { text } })
+      console.log(option.data)
+      let node = this.$cloneDeep(option)
+      let { name: text } = option.data
+      node.width = 50
+      node.height = 50
+      node.attrs = {
+        label: {
+          text
+        }
+      }
+      node.ports = [
+        {
+          id: text + '-1',
+          group: 'top'
+        },
+        {
+          id: text + '-2',
+          group: 'right'
+        },
+        {
+          id: text + '-3',
+          group: 'bottom'
+        },
+        {
+          id: text + '-4',
+          group: 'left'
+        }
+      ]
+      const p = this.graph.pageToLocal(node.x, node.y)
+      const addnode = this.graph.addNode(Object.assign({}, node, p))
+      console.log(addnode, '新增节点')
     }
   }
 }

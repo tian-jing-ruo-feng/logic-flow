@@ -1,7 +1,7 @@
 <template>
-  <div class="node-circle" ref="nodeCircle">
+  <div class="node-message" ref="nodeMessage">
     <div class="node">
-      <span class="iconfont icon-circle"></span>
+      <span class="iconfont icon-message"></span>
     </div>
   </div>
 </template>
@@ -9,7 +9,7 @@
 <script>
 export default {
   inject: ['getGraph', 'getNode'],
-  name: 'node-circle',
+  name: 'node-message',
   data() {
     return {
       label: 'label',
@@ -20,7 +20,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.node-circle {
+.node-message {
   width: 100%;
   height: 100%;
   // border: 1px solid #000;

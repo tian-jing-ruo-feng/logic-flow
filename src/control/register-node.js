@@ -2,6 +2,37 @@ import { Graph } from '@antv/x6'
 import '@antv/x6-vue-shape'
 //  引入自定义vue节点
 import nodeCircle from '@com/custom-node/nodeCircle.vue'
+import nodeStart from '@com/custom-node/nodeStart.vue'
+import nodeXunhuan from '@com/custom-node/nodeXunhuan.vue'
+import nodeLingxing from '@com/custom-node/nodeLingxing.vue'
+import nodeShujuku from '@com/custom-node/nodeShujuku.vue'
+import nodeJuxing from '@com/custom-node/nodeJuxing.vue'
+import nodeJieshu from '@com/custom-node/nodeJieshu.vue'
+import nodeWendang from '@com/custom-node/nodeWendang.vue'
+import nodeMessage from '@com/custom-node/nodeMessage.vue'
+import nodeComposerluojibianpai from '@com/custom-node/nodeComposerluojibianpai.vue'
+import nodeBianliangfuzhi from '@com/custom-node/nodeBianliangfuzhi.vue'
+import nodeSwitch from '@com/custom-node/nodeSwitch.vue'
+import nodeBianpaicanshu from '@com/custom-node/nodeBianpaicanshu.vue'
+
+const nodes = [
+  {
+    name: 'nodeCircle',
+    component: nodeCircle
+  },
+  { name: 'nodeStart', component: nodeStart },
+  { name: 'nodeXunhuan', component: nodeXunhuan },
+  { name: 'nodeLingxing', component: nodeLingxing },
+  { name: 'nodeShujuku', component: nodeShujuku },
+  { name: 'nodeJuxing', component: nodeJuxing },
+  { name: 'nodeJieshu', component: nodeJieshu },
+  { name: 'nodeWendang', component: nodeWendang },
+  { name: 'nodeMessage', component: nodeMessage },
+  { name: 'nodeComposerluojibianpai', component: nodeComposerluojibianpai },
+  { name: 'nodeBianliangfuzhi', component: nodeBianliangfuzhi },
+  { name: 'nodeSwitch', component: nodeSwitch },
+  { name: 'nodeBianpaicanshu', component: nodeBianpaicanshu }
+]
 
 /**
  * @description: 节点注册
@@ -94,17 +125,19 @@ function registerNodeWithVue(graph, name, style, component) {
 }
 
 // 注册自定义节点
-registerNodeWithVue(
-  Graph,
-  'node-circle',
-  {
-    width: 50,
-    height: 50
-  },
-  {
-    template: `<node-circle></node-circle>`,
-    components: {
-      nodeCircle
+nodes.forEach((node) => {
+  registerNodeWithVue(
+    Graph,
+    node.component.name,
+    {
+      width: 50,
+      height: 50
+    },
+    {
+      template: `<${node.component.name}/>`,
+      components: {
+        [`${node.name}`]: node.component
+      }
     }
-  }
-)
+  )
+})

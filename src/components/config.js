@@ -1,7 +1,7 @@
 const config = [
   {
     type: 'primary',
-    shape: 'node-circle',
+    shape: 'node-start',
     label: '基础节点01',
     name: '基础节点01',
     iconfont: 'icon-Start-01',
@@ -11,7 +11,7 @@ const config = [
   },
   {
     type: 'primary',
-    shape: 'node-circle',
+    shape: 'node-xunhuan',
     label: '基础节点02',
     name: '基础节点02',
     iconfont: 'icon-xunhuan',
@@ -21,7 +21,7 @@ const config = [
   },
   {
     type: 'primary',
-    shape: 'node-circle',
+    shape: 'node-lingxing',
     label: '基础节点03',
     name: '基础节点03',
     iconfont: 'icon-lingxing1',
@@ -41,7 +41,7 @@ const config = [
   },
   {
     type: 'primary',
-    shape: 'node-circle',
+    shape: 'node-shujuku',
     label: '基础节点05',
     name: '基础节点05',
     iconfont: 'icon-shujuku',
@@ -51,7 +51,7 @@ const config = [
   },
   {
     type: 'primary',
-    shape: 'node-circle',
+    shape: 'node-juxing',
     label: '基础节点06',
     name: '基础节点06',
     iconfont: 'icon-juxing',
@@ -61,7 +61,7 @@ const config = [
   },
   {
     type: 'primary',
-    shape: 'node-circle',
+    shape: 'node-jieshu',
     label: '基础节点07',
     name: '基础节点07',
     iconfont: 'icon-jieshu',
@@ -71,7 +71,7 @@ const config = [
   },
   {
     type: 'primary',
-    shape: 'node-circle',
+    shape: 'node-wendang',
     label: '基础节点08',
     name: '基础节点08',
     iconfont: 'icon-wendang',
@@ -81,7 +81,7 @@ const config = [
   },
   {
     type: 'primary',
-    shape: 'node-circle',
+    shape: 'node-message',
     label: '基础节点09',
     name: '基础节点09',
     iconfont: 'icon-message',
@@ -91,7 +91,7 @@ const config = [
   },
   {
     type: 'primary',
-    shape: 'node-circle',
+    shape: 'node-composerluojibianpai',
     label: '基础节点10',
     name: '基础节点10',
     iconfont: 'icon-composerluojibianpai',
@@ -101,7 +101,7 @@ const config = [
   },
   {
     type: 'primary',
-    shape: 'node-circle',
+    shape: 'node-bianliangfuzhi',
     label: '基础节点11',
     name: '基础节点11',
     iconfont: 'icon-bianliangfuzhi',
@@ -111,7 +111,7 @@ const config = [
   },
   {
     type: 'primary',
-    shape: 'node-circle',
+    shape: 'node-switch',
     label: '基础节点12',
     name: '基础节点12',
     iconfont: 'icon-switch',
@@ -121,7 +121,7 @@ const config = [
   },
   {
     type: 'primary',
-    shape: 'node-circle',
+    shape: 'node-bianpaicanshu',
     label: '基础节点13',
     name: '基础节点13',
     iconfont: 'icon-bianpaicanshu',

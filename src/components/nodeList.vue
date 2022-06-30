@@ -56,29 +56,28 @@ export default {
   & .node-wrapper {
     width: 33.33%;
     & .node {
+      position: relative;
       width: 50px;
       height: 50px;
       margin: 10px auto;
       border-radius: 50%;
+      box-shadow: 0 0 10px $boxshadow, 0 0 10px $boxshadow, 0 0 10px $boxshadow,
+        0 0 10px $boxshadow;
       & .iconfont {
-        position: relative;
         display: inline-block;
-        width: 100%;
-        height: 100%;
-        box-shadow: 0 0 10px $boxshadow, 0 0 10px $boxshadow,
-          0 0 10px $boxshadow, 0 0 10px $boxshadow;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        transition: all 1s ease-in-out;
         border-radius: 50%;
-        transition: all 0.6s ease-in-out;
-        font-size: 50px;
-        color: rgb(226, 106, 90);
-        &::before {
-          position: absolute;
-          top: -2px;
-        }
+        font-size: 40px;
+        color: $nodecolor;
         &:hover::before {
+          display: inline-block;
           color: $nodehover;
-          cursor: pointer;
           transform: scale(1.1);
+          cursor: pointer;
         }
       }
     }

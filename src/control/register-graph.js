@@ -15,6 +15,11 @@ export const initGraph = function (container) {
       color: '#fff'
     },
     container,
+    snapline: {
+      enabled: true,
+      sharp: false,
+      tolerance: 20
+    },
     panning: {
       enable: true,
       eventTypes: ['leftMouseDown', 'mouseWheel']

@@ -1,3 +1,5 @@
+import Funcs from './func'
+const funcs = new Funcs()
 export const registerEvent = function (graph, vm) {
   // ------------ 监听边的相关事件 ------------
   graph.on('edge:contextmenu', ({ e, edge }) => {
@@ -77,5 +79,12 @@ export const registerEvent = function (graph, vm) {
       })
   })
 
+  graph.on('node:mouseenter', () => {
+    funcs.showPorts(true)
+  })
+
+  graph.on('node:mouseleave', () => {
+    funcs.showPorts(false)
+  })
   // ------------ 监听画布相关事件 ------------
 }

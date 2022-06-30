@@ -51,5 +51,14 @@ class Funcs {
       that.graph.disableKeyboard()
     }
   }
+
+  /** 链接桩显示隐藏 */
+  showPorts(show) {
+    const container = document.getElementById('container')
+    const ports = container.querySelectorAll('.x6-port-body')
+    for (let i = 0, len = ports.length; i < len; i++) {
+      ports[i].style.visibility = show ? 'visible' : 'hidden'
+    }
+  }
 }
 export default Funcs

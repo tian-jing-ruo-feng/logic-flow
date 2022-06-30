@@ -85,6 +85,7 @@ export const registerEvent = function (graph, vm) {
 
   graph.on('node:mouseleave', () => {
     funcs.showPorts(false)
+    console.log(false)
   })
   // ------------ 监听画布相关事件 ------------
 }

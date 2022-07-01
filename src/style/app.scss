@@ -90,3 +90,10 @@ header i {
 ::-webkit-scrollbar {
   width: 0;
 }
+
+#minimap {
+  position: absolute;
+  right: 20px;
+  top: 70px;
+  border: 1px solid #ff0000;
+}

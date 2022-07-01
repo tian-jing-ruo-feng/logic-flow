@@ -2,6 +2,7 @@
   <div id="coverCot" style="width: 100vw; height: 100vh; overflow: hidden">
     <section class="section-cot" style="width: 100%; height: 100%">
       <div id="container" @click.stop="hideFn">
+        <!-- 右键菜单栏 -->
         <MenuBar
           v-if="showContextMenu"
           ref="menuBar"
@@ -9,6 +10,7 @@
         <el-tag v-show="false" style="width: 100%" type="primary"
           >AntV x6 、ElementUI 、 Vue.js 搭建可视化拖拽流程图</el-tag
         >
+        <!-- 工具栏目 -->
         <header v-show="true">
           <el-tooltip
             class="item"
@@ -76,7 +78,11 @@
               @click="lockFn()" />
           </el-tooltip>
         </header>
+        <!-- 画布 -->
         <div id="draw-cot" />
+        <!-- 右侧小地图 -->
+        <div id="minimap"></div>
+        <!-- 左侧节点列表栏目 -->
         <Drawer ref="drawer" @addNode="addNode" />
       </div>
     </section>

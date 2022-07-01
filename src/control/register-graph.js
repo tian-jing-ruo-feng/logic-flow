@@ -20,13 +20,38 @@ export const initGraph = function (container) {
       sharp: false,
       tolerance: 20
     },
+    scroller: true, // 滚动画布
+    minimap: {
+      enabled: true,
+      container: document.getElementById('minimap'),
+      width: 200,
+      height: 160,
+      padding: 10,
+      graphOptions: {
+        async: true,
+        getCellView(cell) {
+          if (cell.isNode()) {
+            // return SimpleNodeView
+          }
+        },
+        createCellView(cell) {
+          if (cell.isEdge()) {
+            return null
+          }
+        }
+      }
+    }, // 小地图
+    autoResize: true,
     panning: {
       enable: true,
       eventTypes: ['leftMouseDown', 'mouseWheel']
     },
+    allowPanning: () => {
+      return true
+    },
     mouseWheel: {
       enable: true,
-      modifiers: 'ctrl',
+      modifiers: ['ctrl', 'meta'],
       factor: 1.1,
       maxScale: 1.5,
       minScale: 0.5

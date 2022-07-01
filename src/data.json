@@ -1,7 +1,7 @@
 [
   {
     "id": "1",
-    "shape": "node-circle",
+    "shape": "node-start",
     "x": 290,
     "y": 110,
     "data": {
@@ -17,7 +17,7 @@
   },
   {
     "id": "2",
-    "shape": "node-circle",
+    "shape": "node-xunhuan",
     "x": 290,
     "y": 225,
     "data": {
@@ -41,7 +41,7 @@
   },
   {
     "id": "3",
-    "shape": "node-circle",
+    "shape": "node-composerluojibianpai",
     "x": 170,
     "y": 350,
     "data": {
@@ -57,7 +57,7 @@
   },
   {
     "id": "4",
-    "shape": "node-circle",
+    "shape": "node-bianpaicanshu",
     "x": 450,
     "y": 350,
     "data": {

@@ -6,8 +6,7 @@
       size="300px"
       :modal="false"
       :modal-append-to-body="false"
-      style="position: absolute; width: 300px; box-sizing: border-box"
-      show-close>
+      style="position: absolute; width: 300px; box-sizing: border-box">
       <template slot="title">
         <h2 class="iconfont icon-jiedianleixing drawe-title">节点类型</h2>
       </template>

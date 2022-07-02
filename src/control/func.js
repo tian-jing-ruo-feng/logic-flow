@@ -24,6 +24,14 @@ class Funcs {
     that.graph.centerContent()
   }
 
+  startMock(item, DataJson, nodeStatusList) {
+    const that = this.vm
+    that.timer && clearTimeout(that.timer)
+    that.init(item || DataJson.cells)
+    that.showNodeStatus(Object.assign([], nodeStatusList))
+    that.graph.centerContent()
+  }
+
   saveFn() {
     const that = this.vm
     localStorage.setItem(
@@ -60,5 +68,10 @@ class Funcs {
       ports[i].style.visibility = show ? 'visible' : 'hidden'
     }
   }
+}
+/** 删除节点 */
+export const deleteNode = (graph, node) => {
+  const deleteNode = graph.removeNode(node)
+  return deleteNode
 }
 export default Funcs

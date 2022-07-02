@@ -84,6 +84,11 @@
         <div id="minimap"></div>
         <!-- 左侧节点列表栏目 -->
         <Drawer ref="drawer" @addNode="addNode" />
+        <!-- 右侧编辑栏目 -->
+        <rightDrawer
+          ref="rightDrawer"
+          :title="rightDrawerTitle"
+          @save="preserveStatus"></rightDrawer>
       </div>
     </section>
   </div>
@@ -91,8 +96,10 @@
 
 <script>
 import DataJson from './data'
+import MockExample from '@/mock/example.json'
 import MenuBar from './components/menuBar'
 import Drawer from './components/drawer'
+import rightDrawer from './components/rightDrawer.vue'
 import initGraph, { registerEvent } from '@/control'
 
 import Funcs from '@/control/func.js'
@@ -173,7 +180,7 @@ const nodeStatusList = [
 
 export default {
   name: 'App',
-  components: { MenuBar, Drawer },
+  components: { MenuBar, Drawer, rightDrawer },
   data() {
     return {
       container: null,
@@ -181,7 +188,8 @@ export default {
       timer: '',
       isLock: false,
       showContextMenu: false,
-      funcs: {}
+      funcs: {},
+      rightDrawerTitle: '自定义标题'
     }
   },
   mounted() {
@@ -190,9 +198,13 @@ export default {
     // 按钮绑定
     this.keyBindFn()
     // 执行
-    this.startFn()
+    // this.startFn()
+    this.startMock()
   },
   methods: {
+    preserveStatus({ node, form }) {
+      node.item.attr('label/text', form.label)
+    },
     getNodeById(id) {
       return this.graph.getCellById(id)
     },
@@ -226,6 +238,7 @@ export default {
     },
     // 初始化节点/边
     init(data = []) {
+      console.log(data, '初始化数据')
       const cells = []
       data.forEach((item) => {
         if (item.shape === 'tjrf-edge') {
@@ -252,6 +265,9 @@ export default {
     startFn(item) {
       this.funcs.startFn(item, DataJson, nodeStatusList)
       this.funcs.showPorts(false)
+    },
+    startMock(item) {
+      this.funcs.startMock(item, MockExample, [])
     },
     createMenuFn() {},
     keyBindFn() {
@@ -297,16 +313,25 @@ export default {
       this.funcs.lockFn()
     },
     contextMenuFn(type, node) {
+      const { type: nodeType, item } = node
+      let drawer = this.$refs.rightDrawer
       switch (type) {
         case 'remove':
-          if (node.type == 'edge') {
-            this.graph.removeEdge(node.item.id)
-          } else if (node.type == 'node') {
-            this.graph.removeNode(node.item.id)
+          if (nodeType == 'edge') {
+            this.graph.removeEdge(item.id)
+          } else if (nodeType == 'node') {
+            this.graph.removeNode(item.id)
           }
           break
-        case 'source':
-          break
+        case 'edit':
+          drawer.visible = !drawer.visible
+          drawer.node = node
+          drawer.form.label = node.item.data.name
+          if (nodeType == 'edge') {
+            this.rightDrawerTitle = '编辑边'
+          } else if (nodeType == 'node') {
+            this.rightDrawerTitle = '编辑节点'
+          }
       }
 
       this.showContextMenu = false

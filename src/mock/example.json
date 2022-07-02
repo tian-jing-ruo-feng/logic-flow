@@ -1,0 +1,598 @@
+{
+  "cells": [
+    {
+      "shape": "tjrf-edge",
+      "attrs": { "line": { "strokeDasharray": "" } },
+      "id": "d7d06a78-76e7-44cf-80b0-9f4faaab86cb",
+      "zIndex": -1,
+      "source": {
+        "cell": "88642b49-a142-4675-af86-bdf07a7759b8",
+        "port": "自定义数据名称01-3"
+      },
+      "target": {
+        "cell": "2cd3539a-471f-465b-864c-6517190f9b64",
+        "port": "自定义数据名称06-1"
+      }
+    },
+    {
+      "shape": "tjrf-edge",
+      "attrs": { "line": { "strokeDasharray": "" } },
+      "id": "aa71f461-e644-49af-80bf-bb0d705ebc80",
+      "zIndex": -1,
+      "source": {
+        "cell": "2cd3539a-471f-465b-864c-6517190f9b64",
+        "port": "自定义数据名称06-3"
+      },
+      "target": {
+        "cell": "3e32e3bc-6a73-4513-b596-ae225ca97af9",
+        "port": "自定义数据名称03-1"
+      }
+    },
+    {
+      "shape": "tjrf-edge",
+      "attrs": { "line": { "strokeDasharray": "" } },
+      "id": "70886b4a-2193-4af0-83b2-13fbea18e169",
+      "zIndex": -1,
+      "source": {
+        "cell": "3e32e3bc-6a73-4513-b596-ae225ca97af9",
+        "port": "自定义数据名称03-3"
+      },
+      "target": {
+        "cell": "9fdaafa9-faa9-4f01-997d-46cfb4fe1643",
+        "port": "自定义数据名称07-1"
+      }
+    },
+    {
+      "shape": "tjrf-edge",
+      "attrs": { "line": { "strokeDasharray": "" } },
+      "id": "ca9c8ba0-f35e-4373-92bb-3af80783fa83",
+      "zIndex": -1,
+      "source": {
+        "cell": "3e32e3bc-6a73-4513-b596-ae225ca97af9",
+        "port": "自定义数据名称03-2"
+      },
+      "target": {
+        "cell": "b35ce926-cd0e-47a1-a425-a3f26955357e",
+        "port": "自定义数据名称02-4"
+      }
+    },
+    {
+      "shape": "tjrf-edge",
+      "attrs": { "line": { "strokeDasharray": "" } },
+      "id": "abfef9cf-0331-4e8a-ba66-ba782bcffa6c",
+      "zIndex": -1,
+      "source": {
+        "cell": "b35ce926-cd0e-47a1-a425-a3f26955357e",
+        "port": "自定义数据名称02-1"
+      },
+      "target": {
+        "cell": "8776a6d4-86ea-411e-866d-704d4c3988bc",
+        "port": "自定义数据名称04-3"
+      }
+    },
+    {
+      "shape": "tjrf-edge",
+      "attrs": { "line": { "strokeDasharray": "" } },
+      "id": "91c467e0-adb8-4b40-a956-b2efdb7a102d",
+      "zIndex": -1,
+      "source": {
+        "cell": "8776a6d4-86ea-411e-866d-704d4c3988bc",
+        "port": "自定义数据名称04-4"
+      },
+      "target": {
+        "cell": "2cd3539a-471f-465b-864c-6517190f9b64",
+        "port": "自定义数据名称06-2"
+      }
+    },
+    {
+      "position": { "x": 81, "y": -8 },
+      "attrs": { "label": { "text": "开始" } },
+      "shape": "node-start",
+      "component": {
+        "template": "<node-start/>",
+        "components": {
+          "nodeStart": {
+            "inject": {
+              "getGraph": { "from": "getGraph" },
+              "getNode": { "from": "getNode" }
+            },
+            "name": "node-start",
+            "staticRenderFns": [null],
+            "_compiled": true,
+            "_scopeId": "data-v-1d76fe2f",
+            "beforeCreate": [null],
+            "beforeDestroy": [null],
+            "__file": "src/components/custom-node/nodeStart.vue",
+            "_Ctor": {}
+          }
+        }
+      },
+      "ports": {
+        "groups": {
+          "top": {
+            "position": "top",
+            "attrs": {
+              "circle": {
+                "r": 4,
+                "magnet": true,
+                "stroke": "#c2c805",
+                "strokeWidth": 1,
+                "fill": "#fff"
+              }
+            }
+          },
+          "bottom": {
+            "position": "bottom",
+            "attrs": {
+              "circle": {
+                "r": 4,
+                "magnet": true,
+                "stroke": "#c2c805",
+                "strokeWidth": 1,
+                "fill": "#fff"
+              }
+            }
+          },
+          "left": {
+            "position": "left",
+            "attrs": {
+              "circle": {
+                "r": 4,
+                "magnet": true,
+                "stroke": "#c2c805",
+                "strokeWidth": 1,
+                "fill": "#fff"
+              }
+            }
+          },
+          "right": {
+            "position": "right",
+            "attrs": {
+              "circle": {
+                "r": 4,
+                "magnet": true,
+                "stroke": "#c2c805",
+                "strokeWidth": 1,
+                "fill": "#fff"
+              }
+            }
+          }
+        },
+        "items": [
+          { "id": "自定义数据名称01-1", "group": "top" },
+          { "id": "自定义数据名称01-2", "group": "right" },
+          { "id": "自定义数据名称01-3", "group": "bottom" },
+          { "id": "自定义数据名称01-4", "group": "left" }
+        ]
+      },
+      "id": "88642b49-a142-4675-af86-bdf07a7759b8",
+      "data": { "name": "自定义数据名称01" },
+      "zIndex": 1
+    },
+    {
+      "position": { "x": 81, "y": 144 },
+      "attrs": { "label": { "text": "任务1" } },
+      "shape": "node-juxing",
+      "component": {
+        "template": "<node-juxing/>",
+        "components": {
+          "nodeJuxing": {
+            "inject": {
+              "getGraph": { "from": "getGraph" },
+              "getNode": { "from": "getNode" }
+            },
+            "name": "node-juxing",
+            "staticRenderFns": [null],
+            "_compiled": true,
+            "_scopeId": "data-v-0100a2b8",
+            "beforeCreate": [null],
+            "beforeDestroy": [null],
+            "__file": "src/components/custom-node/nodeJuxing.vue",
+            "_Ctor": {}
+          }
+        }
+      },
+      "ports": {
+        "groups": {
+          "top": {
+            "position": "top",
+            "attrs": {
+              "circle": {
+                "r": 4,
+                "magnet": true,
+                "stroke": "#c2c805",
+                "strokeWidth": 1,
+                "fill": "#fff"
+              }
+            }
+          },
+          "bottom": {
+            "position": "bottom",
+            "attrs": {
+              "circle": {
+                "r": 4,
+                "magnet": true,
+                "stroke": "#c2c805",
+                "strokeWidth": 1,
+                "fill": "#fff"
+              }
+            }
+          },
+          "left": {
+            "position": "left",
+            "attrs": {
+              "circle": {
+                "r": 4,
+                "magnet": true,
+                "stroke": "#c2c805",
+                "strokeWidth": 1,
+                "fill": "#fff"
+              }
+            }
+          },
+          "right": {
+            "position": "right",
+            "attrs": {
+              "circle": {
+                "r": 4,
+                "magnet": true,
+                "stroke": "#c2c805",
+                "strokeWidth": 1,
+                "fill": "#fff"
+              }
+            }
+          }
+        },
+        "items": [
+          { "id": "自定义数据名称06-1", "group": "top" },
+          { "id": "自定义数据名称06-2", "group": "right" },
+          { "id": "自定义数据名称06-3", "group": "bottom" },
+          { "id": "自定义数据名称06-4", "group": "left" }
+        ]
+      },
+      "id": "2cd3539a-471f-465b-864c-6517190f9b64",
+      "data": { "name": "自定义数据名称06" },
+      "zIndex": 2
+    },
+    {
+      "position": { "x": 81, "y": 307 },
+      "attrs": { "label": { "text": "判断条件" } },
+      "shape": "node-lingxing",
+      "component": {
+        "template": "<node-lingxing/>",
+        "components": {
+          "nodeLingxing": {
+            "inject": {
+              "getGraph": { "from": "getGraph" },
+              "getNode": { "from": "getNode" }
+            },
+            "name": "node-lingxing",
+            "staticRenderFns": [null],
+            "_compiled": true,
+            "_scopeId": "data-v-09817ba3",
+            "beforeCreate": [null],
+            "beforeDestroy": [null],
+            "__file": "src/components/custom-node/nodeLingxing.vue",
+            "_Ctor": {}
+          }
+        }
+      },
+      "ports": {
+        "groups": {
+          "top": {
+            "position": "top",
+            "attrs": {
+              "circle": {
+                "r": 4,
+                "magnet": true,
+                "stroke": "#c2c805",
+                "strokeWidth": 1,
+                "fill": "#fff"
+              }
+            }
+          },
+          "bottom": {
+            "position": "bottom",
+            "attrs": {
+              "circle": {
+                "r": 4,
+                "magnet": true,
+                "stroke": "#c2c805",
+                "strokeWidth": 1,
+                "fill": "#fff"
+              }
+            }
+          },
+          "left": {
+            "position": "left",
+            "attrs": {
+              "circle": {
+                "r": 4,
+                "magnet": true,
+                "stroke": "#c2c805",
+                "strokeWidth": 1,
+                "fill": "#fff"
+              }
+            }
+          },
+          "right": {
+            "position": "right",
+            "attrs": {
+              "circle": {
+                "r": 4,
+                "magnet": true,
+                "stroke": "#c2c805",
+                "strokeWidth": 1,
+                "fill": "#fff"
+              }
+            }
+          }
+        },
+        "items": [
+          { "id": "自定义数据名称03-1", "group": "top" },
+          { "id": "自定义数据名称03-2", "group": "right" },
+          { "id": "自定义数据名称03-3", "group": "bottom" },
+          { "id": "自定义数据名称03-4", "group": "left" }
+        ]
+      },
+      "id": "3e32e3bc-6a73-4513-b596-ae225ca97af9",
+      "data": { "name": "自定义数据名称03" },
+      "zIndex": 3
+    },
+    {
+      "position": { "x": 81, "y": 475 },
+      "attrs": { "label": { "text": "结束" } },
+      "shape": "node-jieshu",
+      "component": {
+        "template": "<node-jieshu/>",
+        "components": {
+          "nodeJieshu": {
+            "inject": {
+              "getGraph": { "from": "getGraph" },
+              "getNode": { "from": "getNode" }
+            },
+            "name": "node-jieshu",
+            "staticRenderFns": [null],
+            "_compiled": true,
+            "_scopeId": "data-v-5f9b9ffd",
+            "beforeCreate": [null],
+            "beforeDestroy": [null],
+            "__file": "src/components/custom-node/nodeJieshu.vue",
+            "_Ctor": {}
+          }
+        }
+      },
+      "ports": {
+        "groups": {
+          "top": {
+            "position": "top",
+            "attrs": {
+              "circle": {
+                "r": 4,
+                "magnet": true,
+                "stroke": "#c2c805",
+                "strokeWidth": 1,
+                "fill": "#fff"
+              }
+            }
+          },
+          "bottom": {
+            "position": "bottom",
+            "attrs": {
+              "circle": {
+                "r": 4,
+                "magnet": true,
+                "stroke": "#c2c805",
+                "strokeWidth": 1,
+                "fill": "#fff"
+              }
+            }
+          },
+          "left": {
+            "position": "left",
+            "attrs": {
+              "circle": {
+                "r": 4,
+                "magnet": true,
+                "stroke": "#c2c805",
+                "strokeWidth": 1,
+                "fill": "#fff"
+              }
+            }
+          },
+          "right": {
+            "position": "right",
+            "attrs": {
+              "circle": {
+                "r": 4,
+                "magnet": true,
+                "stroke": "#c2c805",
+                "strokeWidth": 1,
+                "fill": "#fff"
+              }
+            }
+          }
+        },
+        "items": [
+          { "id": "自定义数据名称07-1", "group": "top" },
+          { "id": "自定义数据名称07-2", "group": "right" },
+          { "id": "自定义数据名称07-3", "group": "bottom" },
+          { "id": "自定义数据名称07-4", "group": "left" }
+        ]
+      },
+      "id": "9fdaafa9-faa9-4f01-997d-46cfb4fe1643",
+      "data": { "name": "自定义数据名称07" },
+      "zIndex": 4
+    },
+    {
+      "position": { "x": 321, "y": 307 },
+      "attrs": { "label": { "text": "循环" } },
+      "shape": "node-xunhuan",
+      "component": {
+        "template": "<node-xunhuan/>",
+        "components": {
+          "nodeXunhuan": {
+            "inject": {
+              "getGraph": { "from": "getGraph" },
+              "getNode": { "from": "getNode" }
+            },
+            "name": "node-xunhuan",
+            "staticRenderFns": [null],
+            "_compiled": true,
+            "_scopeId": "data-v-7c7bae98",
+            "beforeCreate": [null],
+            "beforeDestroy": [null],
+            "__file": "src/components/custom-node/nodeXunhuan.vue",
+            "_Ctor": {}
+          }
+        }
+      },
+      "ports": {
+        "groups": {
+          "top": {
+            "position": "top",
+            "attrs": {
+              "circle": {
+                "r": 4,
+                "magnet": true,
+                "stroke": "#c2c805",
+                "strokeWidth": 1,
+                "fill": "#fff"
+              }
+            }
+          },
+          "bottom": {
+            "position": "bottom",
+            "attrs": {
+              "circle": {
+                "r": 4,
+                "magnet": true,
+                "stroke": "#c2c805",
+                "strokeWidth": 1,
+                "fill": "#fff"
+              }
+            }
+          },
+          "left": {
+            "position": "left",
+            "attrs": {
+              "circle": {
+                "r": 4,
+                "magnet": true,
+                "stroke": "#c2c805",
+                "strokeWidth": 1,
+                "fill": "#fff"
+              }
+            }
+          },
+          "right": {
+            "position": "right",
+            "attrs": {
+              "circle": {
+                "r": 4,
+                "magnet": true,
+                "stroke": "#c2c805",
+                "strokeWidth": 1,
+                "fill": "#fff"
+              }
+            }
+          }
+        },
+        "items": [
+          { "id": "自定义数据名称02-1", "group": "top" },
+          { "id": "自定义数据名称02-2", "group": "right" },
+          { "id": "自定义数据名称02-3", "group": "bottom" },
+          { "id": "自定义数据名称02-4", "group": "left" }
+        ]
+      },
+      "id": "b35ce926-cd0e-47a1-a425-a3f26955357e",
+      "data": { "name": "自定义数据名称02" },
+      "zIndex": 5
+    },
+    {
+      "position": { "x": 321, "y": 144 },
+      "attrs": { "label": { "text": "任务处理" } },
+      "shape": "node-circle",
+      "component": {
+        "template": "<node-circle/>",
+        "components": {
+          "nodeCircle": {
+            "inject": {
+              "getGraph": { "from": "getGraph" },
+              "getNode": { "from": "getNode" }
+            },
+            "name": "node-circle",
+            "staticRenderFns": [null],
+            "_compiled": true,
+            "_scopeId": "data-v-a0d1f45a",
+            "beforeCreate": [null],
+            "beforeDestroy": [null],
+            "__file": "src/components/custom-node/nodeCircle.vue",
+            "_Ctor": {}
+          }
+        }
+      },
+      "ports": {
+        "groups": {
+          "top": {
+            "position": "top",
+            "attrs": {
+              "circle": {
+                "r": 4,
+                "magnet": true,
+                "stroke": "#c2c805",
+                "strokeWidth": 1,
+                "fill": "#fff"
+              }
+            }
+          },
+          "bottom": {
+            "position": "bottom",
+            "attrs": {
+              "circle": {
+                "r": 4,
+                "magnet": true,
+                "stroke": "#c2c805",
+                "strokeWidth": 1,
+                "fill": "#fff"
+              }
+            }
+          },
+          "left": {
+            "position": "left",
+            "attrs": {
+              "circle": {
+                "r": 4,
+                "magnet": true,
+                "stroke": "#c2c805",
+                "strokeWidth": 1,
+                "fill": "#fff"
+              }
+            }
+          },
+          "right": {
+            "position": "right",
+            "attrs": {
+              "circle": {
+                "r": 4,
+                "magnet": true,
+                "stroke": "#c2c805",
+                "strokeWidth": 1,
+                "fill": "#fff"
+              }
+            }
+          }
+        },
+        "items": [
+          { "id": "自定义数据名称04-1", "group": "top" },
+          { "id": "自定义数据名称04-2", "group": "right" },
+          { "id": "自定义数据名称04-3", "group": "bottom" },
+          { "id": "自定义数据名称04-4", "group": "left" }
+        ]
+      },
+      "id": "8776a6d4-86ea-411e-866d-704d4c3988bc",
+      "data": { "name": "自定义数据名称04" },
+      "zIndex": 6
+    }
+  ]
+}

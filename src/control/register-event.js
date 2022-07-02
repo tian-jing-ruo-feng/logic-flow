@@ -70,9 +70,11 @@ export const registerEvent = function (graph, vm) {
     edges &&
       edges.forEach((edge) => {
         if (status === 'running') {
+          edge.attr('line/stroke', '#ff0000')
           edge.attr('line/strokeDasharray', 5)
-          edge.attr('line/style/animation', 'runnig-line 30s infinite linear')
+          edge.attr('line/style/animation', 'runnig-line 60s infinite linear')
         } else {
+          edge.attr('line/stroke', '#606266')
           edge.attr('line/strokeDasharray', '')
           edge.attr('line/style/animation', '')
         }

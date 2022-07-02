@@ -14,13 +14,20 @@ function registerEdgeWithSelf(graph, name) {
       inherit: 'edge',
       attrs: {
         line: {
-          stroke: '#C2C8D5',
+          stroke: '#606266',
           strokeWidth: 2,
           targetMarker: {
             name: 'block',
             width: 12,
             height: 8
           }
+        }
+      },
+      router: {
+        name: 'manhattan',
+        args: {
+          startDirections: ['bottom'],
+          endDirections: ['top']
         }
       }
     },

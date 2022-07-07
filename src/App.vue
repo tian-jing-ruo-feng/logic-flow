@@ -22,6 +22,13 @@
           <el-tooltip
             class="item"
             effect="dark"
+            content="小地图"
+            placement="bottom">
+            <i class="el-icon-map-location" @click="showMap"></i
+          ></el-tooltip>
+          <el-tooltip
+            class="item"
+            effect="dark"
             content="长按shift多选"
             placement="bottom">
             <i class="el-icon-crop" />
@@ -81,7 +88,7 @@
         <!-- 画布 -->
         <div id="draw-cot" />
         <!-- 右侧小地图 -->
-        <div id="minimap"></div>
+        <div id="minimap" ref="minimap" v-show="showMinimap"></div>
         <!-- 左侧节点列表栏目 -->
         <Drawer ref="drawer" @addNode="addNode" />
         <!-- 右侧编辑栏目 -->
@@ -89,6 +96,11 @@
           ref="rightDrawer"
           :title="rightDrawerTitle"
           @save="preserveStatus"></rightDrawer>
+        <!-- 右侧文件树&数据状态编辑 -->
+        <file-tree
+          class="right-file-tree"
+          v-if="true"
+          ref="fileTree"></file-tree>
       </div>
     </section>
   </div>
@@ -100,6 +112,7 @@ import MockExample from '@/mock/example.json'
 import MenuBar from './components/menuBar'
 import Drawer from './components/drawer'
 import rightDrawer from './components/rightDrawer.vue'
+import FileTree from './components/fileTree.vue'
 import initGraph, { registerEvent } from '@/control'
 
 import Funcs from '@/control/func.js'
@@ -180,7 +193,7 @@ const nodeStatusList = [
 
 export default {
   name: 'App',
-  components: { MenuBar, Drawer, rightDrawer },
+  components: { MenuBar, Drawer, rightDrawer, FileTree },
   data() {
     return {
       container: null,
@@ -189,7 +202,8 @@ export default {
       isLock: false,
       showContextMenu: false,
       funcs: {},
-      rightDrawerTitle: '自定义标题'
+      rightDrawerTitle: '自定义标题',
+      showMinimap: false
     }
   },
   mounted() {
@@ -234,7 +248,7 @@ export default {
         })
       this.timer = setTimeout(() => {
         this.showNodeStatus(statusList)
-      }, 300)
+      }, 3000)
     },
     // 初始化节点/边
     init(data = []) {
@@ -339,6 +353,9 @@ export default {
 
     showDrawerFn() {
       this.$refs.drawer.visible = !this.$refs.drawer.visible
+    },
+    showMap() {
+      this.showMinimap = !this.showMinimap
     },
     addNode(option) {
       console.log(option.data)

@@ -4,7 +4,7 @@
       :visible.sync="visible"
       :direction="direction"
       :modal="false"
-      :size="300"
+      :size="350"
       :modal-append-to-body="false">
       <template slot="title">
         <h3>{{ title }}</h3>

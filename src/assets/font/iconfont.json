@@ -6,6 +6,48 @@
   "description": "",
   "glyphs": [
     {
+      "icon_id": "6151193",
+      "name": "database",
+      "font_class": "database",
+      "unicode": "e7e8",
+      "unicode_decimal": 59368
+    },
+    {
+      "icon_id": "7207747",
+      "name": "interface",
+      "font_class": "interface",
+      "unicode": "e611",
+      "unicode_decimal": 58897
+    },
+    {
+      "icon_id": "12872649",
+      "name": "公共-右箭头2",
+      "font_class": "gonggong-youjiantou",
+      "unicode": "e650",
+      "unicode_decimal": 58960
+    },
+    {
+      "icon_id": "19457245",
+      "name": "logic",
+      "font_class": "luoji",
+      "unicode": "e6b3",
+      "unicode_decimal": 59059
+    },
+    {
+      "icon_id": "1118",
+      "name": "文件",
+      "font_class": "wenjian",
+      "unicode": "e601",
+      "unicode_decimal": 58881
+    },
+    {
+      "icon_id": "1126",
+      "name": "文件夹",
+      "font_class": "wenjianjia",
+      "unicode": "e602",
+      "unicode_decimal": 58882
+    },
+    {
       "icon_id": "755612",
       "name": "圆形",
       "font_class": "circle",

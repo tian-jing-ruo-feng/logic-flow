@@ -32,7 +32,7 @@ header i {
 
 @keyframes running-line {
   to {
-    stroke-dashoffset: -1000;
+    stroke-dashoffset: -1000 !important;
   }
 }
 
@@ -100,4 +100,13 @@ header i {
 
 .el-drawer__container {
   top: 70px;
+}
+
+/** 文件系统 */
+.right-file-tree {
+  position: absolute;
+  right: 0;
+  top: 52px;
+  height: calc(100vh - 52px);
+  background-color: #f4f4f5;
 }

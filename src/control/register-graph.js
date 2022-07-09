@@ -84,7 +84,7 @@ export const initGraph = function (container) {
           shape: 'tjrf-edge',
           attrs: {
             line: {
-              strokeDasharray: '5 5',
+              // strokeDasharray: '5 5',
               targetMarker: {
                 name: 'block',
                 width: 12,

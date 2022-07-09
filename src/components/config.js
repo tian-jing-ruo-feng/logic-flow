@@ -1,3 +1,8 @@
+/**
+ * 左侧栏目node列表配置
+ * 点击边中间按钮node列表配置
+ * 引出边弹出node列表配置
+ */
 const config = [
   {
     type: 'primary',

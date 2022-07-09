@@ -110,3 +110,16 @@ header i {
   height: calc(100vh - 52px);
   background-color: #f4f4f5;
 }
+
+/** 边按钮悬浮状态 */
+@keyframes edgeflower {
+  from {
+    stroke-width: 0px;
+  }
+  to {
+    stroke-width: 12px;
+  }
+}
+.x6-edge-tools .x6-cell-tool-button circle {
+  animation: edgeflower 2s infinite linear;
+}

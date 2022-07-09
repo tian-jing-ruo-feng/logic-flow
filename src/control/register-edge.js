@@ -24,7 +24,7 @@ function registerEdgeWithSelf(graph, name) {
         }
       },
       router: {
-        name: 'manhattan',
+        name: 'normal',
         args: {
           startDirections: ['bottom'],
           endDirections: ['top']

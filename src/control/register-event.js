@@ -51,6 +51,69 @@ export const registerEvent = function (graph, vm) {
     })
   })
 
+  graph.on('edge:mouseenter', ({ edge }) => {
+    !edge.hasTool('button') &&
+      edge.addTools({
+        name: 'button',
+        args: {
+          markup: [
+            {
+              tagName: 'circle',
+              selector: 'button',
+              attrs: {
+                r: 10,
+                stroke: '#ffa2a2',
+                'stroke-width': 2,
+                fill: '#f56c6c',
+                cursor: 'pointer'
+              }
+            }
+          ],
+          distance: '50%',
+          onClick({ cell }) {
+            vm.showNodeMenu = true
+            const source = cell.getSource()
+            const target = cell.getTarget()
+            // console.log(cell, '点击边')
+            // console.log(source, target, '源节点、目标节点')
+            const sourceNode = graph.getCellById(source.cell)
+            const targetNode = graph.getCellById(target.cell)
+            let { x: sourceX, y: sourceY } = sourceNode.position()
+            let { x: targetX, y: targetY } = targetNode.position()
+            const handleMiddle = (p1, p2) => {
+              return Math.abs((p1 - p2) / 2)
+            }
+            const middleX = handleMiddle(sourceX, targetX)
+            const middleY = handleMiddle(sourceY, targetY)
+            const middle = graph.localToPage({
+              x: Math.min(sourceX, targetX) + middleX,
+              y: Math.min(sourceY, targetY) + middleY
+            })
+            console.log(sourceX, sourceY, targetX, targetY, '源、目标')
+            // console.log(middle, ' middle position')
+
+            vm.edgeBtnClickSelectConfig = {
+              nodeMenuPosition: {
+                left: middle.x + 30 + 'px',
+                top: middle.y + 'px'
+              },
+              originEdge: cell,
+              sourceNode: cell.getSourceNode(),
+              targetNode: cell.getTargetNode()
+            }
+            vm.nodeMenuPosition = {
+              left: middle.x + 30 + 'px',
+              top: middle.y + 'px'
+            }
+          }
+        }
+      })
+  })
+
+  graph.on('edge:mouseleave', ({ edge }) => {
+    edge.hasTool('button') && edge.removeTool('button')
+  })
+
   // ------------ 监听节点相关事件 ------------
   graph.on('node:contextmenu', ({ x, y, node }) => {
     vm.showContextMenu = true

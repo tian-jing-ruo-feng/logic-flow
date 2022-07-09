@@ -11,7 +11,7 @@ const config = [
     name: '基础节点01',
     iconfont: 'icon-Start-01',
     data: {
-      name: '自定义数据名称01'
+      name: 'start'
     }
   },
   {
@@ -21,7 +21,7 @@ const config = [
     name: '基础节点02',
     iconfont: 'icon-xunhuan',
     data: {
-      name: '自定义数据名称02'
+      name: 'circulation'
     }
   },
   {
@@ -31,7 +31,7 @@ const config = [
     name: '基础节点03',
     iconfont: 'icon-lingxing1',
     data: {
-      name: '自定义数据名称03'
+      name: 'condition'
     }
   },
   {
@@ -41,7 +41,7 @@ const config = [
     name: '基础节点04',
     iconfont: 'icon-circle',
     data: {
-      name: '自定义数据名称04'
+      name: 'circle'
     }
   },
   {
@@ -51,7 +51,7 @@ const config = [
     name: '基础节点05',
     iconfont: 'icon-shujuku',
     data: {
-      name: '自定义数据名称05'
+      name: 'database'
     }
   },
   {
@@ -61,7 +61,7 @@ const config = [
     name: '基础节点06',
     iconfont: 'icon-juxing',
     data: {
-      name: '自定义数据名称06'
+      name: 'rect'
     }
   },
   {
@@ -71,7 +71,7 @@ const config = [
     name: '基础节点07',
     iconfont: 'icon-jieshu',
     data: {
-      name: '自定义数据名称07'
+      name: 'end'
     }
   },
   {
@@ -81,7 +81,7 @@ const config = [
     name: '基础节点08',
     iconfont: 'icon-wendang',
     data: {
-      name: '自定义数据名称08'
+      name: 'document'
     }
   },
   {
@@ -91,7 +91,7 @@ const config = [
     name: '基础节点09',
     iconfont: 'icon-message',
     data: {
-      name: '自定义数据名称09'
+      name: 'message'
     }
   },
   {
@@ -101,7 +101,7 @@ const config = [
     name: '基础节点10',
     iconfont: 'icon-composerluojibianpai',
     data: {
-      name: '自定义数据名称10'
+      name: 'logic arrange'
     }
   },
   {
@@ -111,7 +111,7 @@ const config = [
     name: '基础节点11',
     iconfont: 'icon-bianliangfuzhi',
     data: {
-      name: '自定义数据名称11'
+      name: 'assign'
     }
   },
   {
@@ -121,7 +121,7 @@ const config = [
     name: '基础节点12',
     iconfont: 'icon-switch',
     data: {
-      name: '自定义数据名称12'
+      name: 'switch'
     }
   },
   {
@@ -131,7 +131,7 @@ const config = [
     name: '基础节点13',
     iconfont: 'icon-bianpaicanshu',
     data: {
-      name: '自定义数据名称13'
+      name: 'arguments'
     }
   }
 ]

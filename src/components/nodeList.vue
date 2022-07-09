@@ -9,6 +9,7 @@
       @dragend="dragend(node)">
       <div class="node">
         <span class="iconfont" :class="[node.iconfont]"></span>
+        <div class="tips">{{ node.data.name }}</div>
       </div>
     </li>
   </ul>
@@ -50,6 +51,7 @@ export default {
 <style lang="scss" scoped>
 .node-list {
   padding-left: 0;
+  margin-top: -10px;
   display: flex;
   flex-wrap: wrap;
   list-style: none;
@@ -59,7 +61,7 @@ export default {
       position: relative;
       width: 50px;
       height: 50px;
-      margin: 10px auto;
+      margin: 20px auto;
       border-radius: 50%;
       box-shadow: 0 0 10px $boxshadow, 0 0 10px $boxshadow, 0 0 10px $boxshadow,
         0 0 10px $boxshadow;
@@ -79,6 +81,13 @@ export default {
           transform: scale(1.1);
           cursor: pointer;
         }
+      }
+      & .tips {
+        position: absolute;
+        left: 50%;
+        top: 100%;
+        transform: translateX(-50%);
+        text-align: center;
       }
     }
   }

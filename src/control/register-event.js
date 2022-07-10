@@ -1,6 +1,11 @@
 import Funcs from './func'
+import EventBus from '@/util/bus.js'
 const funcs = new Funcs()
 export const registerEvent = function (graph, vm) {
+  // ------------ 监听画布相关事件 ------------
+  graph.on('blank:click', () => {
+    EventBus.$emit('click-graph')
+  })
   // ------------ 监听边的相关事件 ------------
   graph.on('edge:contextmenu', ({ e, edge }) => {
     vm.showContextMenu = true
@@ -74,8 +79,6 @@ export const registerEvent = function (graph, vm) {
             vm.showNodeMenu = true
             const source = cell.getSource()
             const target = cell.getTarget()
-            // console.log(cell, '点击边')
-            // console.log(source, target, '源节点、目标节点')
             const sourceNode = graph.getCellById(source.cell)
             const targetNode = graph.getCellById(target.cell)
             let { x: sourceX, y: sourceY } = sourceNode.position()
@@ -99,7 +102,8 @@ export const registerEvent = function (graph, vm) {
               },
               originEdge: cell,
               sourceNode: cell.getSourceNode(),
-              targetNode: cell.getTargetNode()
+              targetNode: cell.getTargetNode(),
+              from: 'middleEdge'
             }
             vm.nodeMenuPosition = {
               left: middle.x + 30 + 'px',

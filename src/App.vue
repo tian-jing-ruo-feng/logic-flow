@@ -5,7 +5,8 @@
         <node-menu
           v-if="showNodeMenu"
           @addNode="addNodeFromMenuList"
-          :position="edgeBtnClickSelectConfig.nodeMenuPosition"></node-menu>
+          :position="edgeBtnClickSelectConfig.nodeMenuPosition"
+          :from="edgeBtnClickSelectConfig.from"></node-menu>
         <!-- 右键菜单栏 -->
         <MenuBar
           v-if="showContextMenu"
@@ -216,7 +217,8 @@ export default {
         },
         originEdge: null,
         sourceNode: null,
-        targetNode: null
+        targetNode: null,
+        from: ''
       },
       showNodeMenu: false
     }
@@ -229,6 +231,14 @@ export default {
     // 执行
     // this.startFn()
     this.startMock()
+    this.$bus.$on('click-graph', () => {
+      if (this.showNodeMenu) {
+        // 隐藏菜单、删除引出的边
+        this.showNodeMenu = false
+        this.edgeBtnClickSelectConfig.from === 'pullEdge' &&
+          this.graph.removeEdge(this.edgeBtnClickSelectConfig.originEdge)
+      }
+    })
   },
   methods: {
     preserveStatus({ node, form }) {
@@ -242,7 +252,7 @@ export default {
     },
     initGraph() {
       const container = document.getElementById('draw-cot')
-      const graph = initGraph(container)
+      const graph = initGraph(container, this)
       this.container = container
       this.graph = graph
       registerEvent(graph, this)
@@ -372,8 +382,8 @@ export default {
     showMap() {
       this.showMinimap = !this.showMinimap
     },
-    addNodeFromMenuList({ node: option, position, type }) {
-      console.log(option, position, type, '菜单栏node添加配置')
+    addNodeFromMenuList({ node: option, position, type, from }) {
+      console.log(option, position, type, from, '菜单栏node添加配置')
       let node = this.$cloneDeep(option)
       let { name: text } = option.data
       node.width = 50
@@ -402,23 +412,14 @@ export default {
           group: 'left'
         }
       ]
-      const p = this.graph.pageToLocal({
+      let p = this.graph.pageToLocal({
         x: parseFloat(position.left),
-        y: parseFloat(position.top)
+        y:
+          from === 'middleEdge'
+            ? parseFloat(position.top)
+            : parseFloat(position.top) - 30
       })
       const addnode = this.graph.addNode(Object.assign({}, node, p))
-      const { originEdge, sourceNode, targetNode } =
-        this.edgeBtnClickSelectConfig
-      const { target: finalTarget } = originEdge
-      const sourcePortId = originEdge.getSourcePortId()
-      const targetPortId = originEdge.getTargetPortId()
-      // 过滤链接桩分组（方向）
-      const {
-        ports: { items: sourceItems }
-      } = sourceNode
-      const {
-        ports: { items: targetItems }
-      } = targetNode
       const getOriginNodeDirection = (ports, id) => {
         let direction = ''
         ports.forEach((port) => {
@@ -428,21 +429,6 @@ export default {
         })
         return direction
       }
-      let originSouceNodeDirection = getOriginNodeDirection(
-        sourceItems,
-        sourcePortId
-      )
-
-      let originTartetNodeDirection = getOriginNodeDirection(
-        targetItems,
-        targetPortId
-      )
-
-      console.log(
-        originSouceNodeDirection,
-        originTartetNodeDirection,
-        '源头方向，目标方向'
-      )
       const handleDirection = (direction) => {
         let res = ''
         switch (direction) {
@@ -463,29 +449,81 @@ export default {
         }
         return res
       }
-      // 新增节点起点链接桩
-      let addNodeSourcePort = addnode.ports.items.filter(
-        (item) => item.group === handleDirection(originTartetNodeDirection)
-      )[0]
-      // 新增节点被指向链接桩
-      let addNodeConnectedPort = addnode.ports.items.filter(
-        (item) => item.group === handleDirection(originSouceNodeDirection)
-      )[0]
-      console.log(addNodeSourcePort, addNodeConnectedPort, '新增节点方向')
-      originEdge.setTarget({
-        cell: addnode.id,
-        port: addNodeConnectedPort.id
-      })
-      // 新建一条边
-      this.graph.addEdge({
-        source: { cell: addnode.id, port: addNodeSourcePort.id },
-        target: finalTarget
-      })
-      addnode.translate(-30, 0, {
-        transition: {
-          duration: 300
-        }
-      })
+      if (from == 'middleEdge') {
+        const { originEdge, sourceNode, targetNode } =
+          this.edgeBtnClickSelectConfig
+        const { target: finalTarget } = originEdge
+        const sourcePortId = originEdge.getSourcePortId()
+        const targetPortId = originEdge.getTargetPortId()
+        // 过滤链接桩分组（方向）
+        const {
+          ports: { items: sourceItems }
+        } = sourceNode
+        const {
+          ports: { items: targetItems }
+        } = targetNode
+        let originSouceNodeDirection = getOriginNodeDirection(
+          sourceItems,
+          sourcePortId
+        )
+
+        let originTartetNodeDirection = getOriginNodeDirection(
+          targetItems,
+          targetPortId
+        )
+
+        console.log(
+          originSouceNodeDirection,
+          originTartetNodeDirection,
+          '源头方向，目标方向'
+        )
+        // 新增节点起点链接桩
+        let addNodeSourcePort = addnode.ports.items.filter(
+          (item) => item.group === handleDirection(originTartetNodeDirection)
+        )[0]
+        // 新增节点被指向链接桩
+        let addNodeConnectedPort = addnode.ports.items.filter(
+          (item) => item.group === handleDirection(originSouceNodeDirection)
+        )[0]
+        console.log(addNodeSourcePort, addNodeConnectedPort, '新增节点方向')
+        originEdge.setTarget({
+          cell: addnode.id,
+          port: addNodeConnectedPort.id
+        })
+        // 新建一条边
+        this.graph.addEdge({
+          source: { cell: addnode.id, port: addNodeSourcePort.id },
+          target: finalTarget
+        })
+        addnode.translate(-30, 0, {
+          transition: {
+            duration: 300
+          }
+        })
+      } else {
+        const { originEdge: edge } = this.edgeBtnClickSelectConfig
+        const sourcePortId = edge.getSourcePortId()
+        let connectDirection = ''
+        edge.getSourceNode().ports.items.forEach((item) => {
+          if (item.id === sourcePortId) {
+            connectDirection = handleDirection(item.group)
+          }
+        })
+        // 获取边连接的链接桩的方向
+        console.log(addnode, 'addnode')
+        let {
+          port: { ports }
+        } = addnode
+        edge.setTarget({
+          cell: addnode.id,
+          port: ports.filter((item) => item.group === connectDirection)[0].id
+        })
+        addnode.translate(-20, 4, {
+          transition: {
+            duration: 300
+          }
+        })
+      }
       this.showNodeMenu = false
     },
     addNode(option) {

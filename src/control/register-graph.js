@@ -1,6 +1,6 @@
 import { Graph } from '@antv/x6'
 
-export const initGraph = function (container) {
+export const initGraph = function (container, vm) {
   const graph = new Graph({
     grid: {
       size: 10,
@@ -80,7 +80,7 @@ export const initGraph = function (container) {
         return true
       },
       createEdge() {
-        return graph.createEdge({
+        const edge = graph.createEdge({
           shape: 'tjrf-edge',
           attrs: {
             line: {
@@ -94,6 +94,22 @@ export const initGraph = function (container) {
           },
           zIndex: -1
         })
+        return edge
+      },
+      validateEdge({ edge, type, previous }) {
+        console.log(edge, type, previous, 'edge, type, previous')
+        let target = graph.localToPage(edge.target)
+        console.log(target, 'target目标点')
+        vm.showNodeMenu = true
+        vm.edgeBtnClickSelectConfig = {
+          nodeMenuPosition: {
+            left: target.x + 'px',
+            top: target.y + 'px'
+          },
+          originEdge: edge,
+          from: 'pullEdge'
+        }
+        return true
       }
     },
     selecting: {

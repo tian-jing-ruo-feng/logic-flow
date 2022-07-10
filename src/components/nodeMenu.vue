@@ -12,7 +12,7 @@
             class="node-item"
             v-for="(node, ind) in config"
             :key="ind"
-            @click="$emit('addNode', { node, position, type })">
+            @click="$emit('addNode', { node, position, type, from })">
             <span :class="['iconfont', node.iconfont]">{{ node.name }}</span>
           </li>
         </ul>
@@ -33,6 +33,10 @@ export default {
           top: '150px'
         }
       }
+    },
+    from: {
+      type: String,
+      default: 'middleEdge'
     }
   },
   data() {
